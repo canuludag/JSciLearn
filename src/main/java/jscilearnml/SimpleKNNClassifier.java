@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SimpleKNNClassifier{
 
+	// We'll use these lists in fit method
 	private ArrayList<ArrayList<Double>> featuresTrain;
 	private ArrayList<Integer> labelsTrain;
 
@@ -48,7 +49,9 @@ public class SimpleKNNClassifier{
 	// K = 1
 	public int closest(ArrayList<Double> row){
 
+		// Let's assume that the first data point has the bes distance at first
 		double bestDistance = calculateEuclideanDistance(row, featuresTrain.get(0));
+		// And the best index is the first data points' index
 		int bestIndex = 0;
 
 		for(int i = 0; i < featuresTrain.size(); i++){
