@@ -19,12 +19,16 @@ Tried to implement [Maven Folder Structure](https://maven.apache.org/guides/intr
 - **src**
     - *main*
         - *java*
-            - *jscileanml*
+            - *jscilearnml*
                 - Machine learning library java files
             - Workspace.java
 
-## Authors
+### Installing
+
+You can copy Java files in **src/main/java/jscilearnml** package into your Java or Android project. It can be compiled by using javac or IDE without any additional Java library requirements.
+
+### Authors
 * **Can Uludağ** - [Linkedin Profile](https://tr.linkedin.com/in/canuludag) - [Github Profile](https://github.com/canuludag)
 
-## License
+### License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
