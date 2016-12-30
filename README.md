@@ -31,6 +31,47 @@ You can copy Java files in **src/main/java/jscilearnml** package into your Java 
 
 * K Nearest Neighbors *(Simple version. K assumed as 1)*
 
+### Usage
+
+You can process your raw CSV files into List objects by using *DataPreProcessing* class.
+``` 
+// Objects for features(X), labels(Y) data lists
+ArrayList<ArrayList<Double>> featuresX = new ArrayList<ArrayList<Double>>();
+ArrayList<Integer> labelsY = new ArrayList<Integer>();
+
+// A class for preparing simple CSV files and separating them for each
+// features and labels lists
+DataPreProcessing preProcess = new DataPreProcessing();
+preProcess.processCSVFile("../datasets/iris-with-names.csv", "target", "categoric", ",");
+
+featuresX = preProcess.getFeatures(); // processed features list
+labelsY = preProcess.getLabels(); // processed labels list
+``` 
+Create a test features list for prediction. Also create a list for predictions.
+```
+// Object for resulting predictions
+ArrayList<Integer> predictions = new ArrayList<Integer>();
+
+// Object for testing new data on our classifier to predict
+ArrayList<ArrayList<Double>> featuresTest = new ArrayList<ArrayList<Double>>();
+
+// Let's add some sample test features from getting the actual training features set
+featuresTest.add(featuresX.get(0));
+featuresTest.add(featuresX.get(78));
+featuresTest.add(featuresX.get(145));
+```
+Fit and train the classifier by creating and instance of SimpleKNNClassifier class. Than you can make predictions.
+```
+// Our custom classifier
+SimpleKNNClassifier classifier = new SimpleKNNClassifier();
+
+// Fit and train the classifier
+classifier.fit(featuresX, labelsY);
+
+// Make predictions on new features test data
+predictions = classifier.predict(featuresTest);
+```
+
 ### Authors
 * **Can Uludağ** - [Linkedin Profile](https://tr.linkedin.com/in/canuludag) - [Github Profile](https://github.com/canuludag)
 
