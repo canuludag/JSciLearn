@@ -34,18 +34,18 @@ You can copy Java files in **src/main/java/jscilearnml** package into your Java 
 ### Built-in Data Processing Methods
 
 * ```processCSVFile();``` *(Processing CSV files into features and labels ArrayList objects)*
-* ```trainTestSplit();``` *(Coming soon)*
+* ```splitTrainTest();``` *(Coming soon)*
 
 ### Usage
 
 You can process your raw CSV files into List objects by using *DataPreProcessing* class.
 ``` 
-// Objects for features(X), labels(Y) data lists
+// Lists for features(X), labels(Y) data lists
 ArrayList<ArrayList<Double>> featuresX = new ArrayList<ArrayList<Double>>();
 ArrayList<Integer> labelsY = new ArrayList<Integer>();
 
-// A class for preparing simple CSV files and separating them for each
-// features and labels lists
+// A class for processing CSV files 
+// and separating them as features and labels lists
 DataPreProcessing preProcess = new DataPreProcessing();
 preProcess.processCSVFile("../datasets/iris-with-names.csv", "target", "categoric", ",");
 
