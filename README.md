@@ -27,9 +27,14 @@ Tried to implement [Maven Folder Structure](https://maven.apache.org/guides/intr
 
 You can copy Java files in **src/main/java/jscilearnml** package into your Java or Android project. It can be compiled by using javac or IDE without any additional Java library requirements.
 
-### Current Machine Learning Algorithms
+### Built-in Machine Learning Algorithms
 
 * K Nearest Neighbors *(Simple version. K assumed as 1)*
+
+### Built-in Data Processing Methods
+
+* ```processCSVFile();``` *(Processing CSV files into features and labels ArrayList objects)*
+* ```trainTestSplit();``` *(Coming soon)*
 
 ### Usage
 
