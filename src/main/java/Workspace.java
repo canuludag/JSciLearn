@@ -8,18 +8,18 @@ public class Workspace{
 
 	public static void main(String[] args){
 
-		// Objects for features(X), labels(Y) data lists
+		// Lists for features(X), labels(Y) data lists
 		ArrayList<ArrayList<Double>> featuresX = new ArrayList<ArrayList<Double>>();
 		ArrayList<Integer> labelsY = new ArrayList<Integer>();
-		// Object for resulting predictions
+		// Lists for resulting predictions
 		ArrayList<Integer> predictions = new ArrayList<Integer>();
-		// Object for testing new data on our classifier to predict
+		// Lists for testing new data on our classifier to predict
 		ArrayList<ArrayList<Double>> featuresTest = new ArrayList<ArrayList<Double>>();
 
 		// Our custom classifier
 		SimpleKNNClassifier classifier = new SimpleKNNClassifier();
-		// A class for preparing simple CSV files and separating them for each
-		// features and labels lists
+		// A class for processing CSV files
+		// and separating them as features and labels lists
 		DataPreProcessing preProcess = new DataPreProcessing();
 		preProcess.processCSVFile("../datasets/iris-with-names.csv", "target", "categoric", ",");
 
