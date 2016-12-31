@@ -77,6 +77,22 @@ classifier.fit(featuresX, labelsY);
 predictions = classifier.predict(featuresTest);
 ```
 
+### How To Compile
+
+If you compile the code in old fashion way. Open your terminal and compile library Java files into **bin** folder
+```
+javac -d bin -classpath "" src/main/java/jscilearnml/SimpleKNNClassifier.java
+javac -d bin -classpath "" src/main/java/jscilearnml/DataPreProcessing.java
+```
+Then compile Workspace.java file
+```
+javac -d bin -classpath bin src/main/java/Workspace.java
+```
+Finally in your **bin** classes folder, run Workspace.class
+```
+java Workspace
+```
+
 ### Authors
 * **Can Uludağ** - [Linkedin Profile](https://tr.linkedin.com/in/canuludag) - [Github Profile](https://github.com/canuludag)
 
