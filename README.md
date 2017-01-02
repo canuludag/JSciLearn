@@ -54,10 +54,10 @@ labelsY = preProcess.getLabels(); // processed labels list
 ``` 
 Create a test features list for prediction. Also create a list for predictions.
 ```
-// Object for resulting predictions
+// List for predictions
 ArrayList<Integer> predictions = new ArrayList<Integer>();
 
-// Object for testing new data on our classifier to predict
+// List for testing new data on our classifier to predict
 ArrayList<ArrayList<Double>> featuresTest = new ArrayList<ArrayList<Double>>();
 
 // Assign the test list with the returning list
@@ -66,7 +66,7 @@ featuresTest = preProcess.splitTrainTest(featuresX, 0.2);
 ```
 Fit and train the classifier by creating and instance of SimpleKNNClassifier class. Than you can make predictions.
 ```
-// Our custom classifier
+// Create an instance of classifier
 SimpleKNNClassifier classifier = new SimpleKNNClassifier();
 
 // Fit and train the classifier
