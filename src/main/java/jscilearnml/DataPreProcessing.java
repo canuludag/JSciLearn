@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.Random;
 
 public class DataPreProcessing{
 
@@ -194,6 +195,26 @@ public class DataPreProcessing{
 
 	}
 
+	// Randomly selects test features from the actual features list
+	// by using percentage value. 0.1 = 10% --> for test list
+	public ArrayList<ArrayList<Double>> splitTrainTest(ArrayList<ArrayList<Double>> trainFeatures,
+														double splitPercentage){
+
+		ArrayList<ArrayList<Double>> testFeatures = new ArrayList<ArrayList<Double>>();
+		Random rand = new Random();
+
+		int elementSize = trainFeatures.size();
+		int testElementSize = (int)(elementSize * splitPercentage);
+		for(int i=0; i < testElementSize; i++){
+			int selectIndex = rand.nextInt(elementSize);
+			testFeatures.add(trainFeatures.get(selectIndex));
+		}
+
+		return testFeatures;
+
+	}
+
+	// Converts the categorical(Strings) label data set into numeric(Integers) labels
 	private ArrayList<Integer> labelNumericEncoder(ArrayList<String> categoricList){
 
 		ArrayList<Integer> numericList = new ArrayList<Integer>();
@@ -214,6 +235,7 @@ public class DataPreProcessing{
 		return numericList;
 	}
 
+	// Checks if a String's format is number 
 	private boolean isNumeric(String str){
 		 //match a number with optional '-' and decimal.
   		return str.matches("-?\\d+(\\.\\d+)?");

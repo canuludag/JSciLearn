@@ -29,10 +29,13 @@ public class Workspace{
 		System.out.printf("FEATURES: %n %s %n", featuresX.toString());
 		System.out.printf("LABELS: %n %s %n", labelsY.toString());
 
+		// Assign the test list with the returning list
+		featuresTest = preProcess.splitTrainTest(featuresX, 0.2);
+
 		// Let's add some sample test features from the actual training features set
-		featuresTest.add(featuresX.get(0));
+		/*featuresTest.add(featuresX.get(0));
 		featuresTest.add(featuresX.get(78));
-		featuresTest.add(featuresX.get(145));
+		featuresTest.add(featuresX.get(145));*/
 
 		// Fit and train the classifier
 		classifier.fit(featuresX, labelsY);
