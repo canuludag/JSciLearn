@@ -1,5 +1,5 @@
 # JSciLearn
-This is a simple **machine learning** library that written in **Java**. It can be used in Java or Android projects easily without any additional library needs. Best scientific and machine learning related libraries are written in Python. Altough Python is very clean and powerful for that purposes, libraries that written in Java would be very helpful. I'll be trying to keep this library very neat as possible as it can be. Pure Java libraries, no extra jars.
+This is a simple **machine learning** library that written in **Java**. It can be used in Java or Android projects easily without any additional library needs. I'll be trying to keep this library very neat as possible as it can be. Pure Java libraries, no extra jars.
 
 ### Prerequisites
 
@@ -33,8 +33,24 @@ You can copy Java files in **src/main/java/jscilearnml** package into your Java 
 
 ### Built-in Data Processing Methods
 
-* ```processCSVFile();``` *(Processing CSV files into features and labels ArrayList objects)*
-* ```splitTrainTest();``` *Split a percentage of the training data set into test list*
+```
+// Processing CSV files into features and labels ArrayList objects
+processCSVFile(String fileName, String labelColumnName, String labelType, String delimiter);
+processCSVFile(String fileName, int labelColumnIndex, String labelType, String delimiter);
+
+// Split a percentage of the training data set into test list
+splitTrainTest(ArrayList<ArrayList<Double>> trainFeatures, double splitPercentage);
+
+``` 
+
+### Saving/Loading Classifier Models
+
+```
+// Save trained classifier model
+TrainedModelHelper.saveModel(SimpleKNNClassifier classifier, String fileName);
+// Load trained classifier model
+TrainedModelHelper.loadModel(String fileName);
+```
 
 ### Usage
 
@@ -71,6 +87,12 @@ SimpleKNNClassifier classifier = new SimpleKNNClassifier();
 
 // Fit and train the classifier
 classifier.fit(featuresX, labelsY);
+
+// You can save your classifier model to a file if you want
+TrainedModelHelper.saveModel(classifier, "trained_knn_model");
+
+// You can load your classifier model from file
+TrainedModelHelper.loadModel("trained_knn_model");
 
 // Make predictions on new features test data
 predictions = classifier.predict(featuresTest);
