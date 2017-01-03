@@ -16,8 +16,12 @@ public class Workspace{
 		// Lists for testing new data on our classifier to predict
 		ArrayList<ArrayList<Double>> featuresTest = new ArrayList<ArrayList<Double>>();
 
-		// Our custom classifier
-		SimpleKNNClassifier classifier = new SimpleKNNClassifier();
+		// Create an instance of the classifier
+		//SimpleKNNClassifier classifier = new SimpleKNNClassifier();
+
+		// Create an instance of the classifier by loading saved model
+		SimpleKNNClassifier classifier = TrainedModelHelper.loadModel("trained_knn_model");
+
 		// A class for processing CSV files
 		// and separating them as features and labels lists
 		DataPreProcessing preProcess = new DataPreProcessing();
@@ -39,6 +43,10 @@ public class Workspace{
 
 		// Fit and train the classifier
 		classifier.fit(featuresX, labelsY);
+
+		// Save trained model classifier for later use
+		//TrainedModelHelper.saveModel(classifier, "trained_knn_model");
+
 		// Make predictions on new features test data
 		predictions = classifier.predict(featuresTest);
 

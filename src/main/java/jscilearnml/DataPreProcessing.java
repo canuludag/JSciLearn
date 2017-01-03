@@ -41,35 +41,28 @@ public class DataPreProcessing{
 	*/
 	public void processCSVFile(String fileName,
 							   String labelColumnName, String labelType, String delimiter){
-
 		ArrayList<ArrayList<Double>> featuresList = new ArrayList<ArrayList<Double>>();
 		ArrayList<Integer> labelsList = new ArrayList<Integer>();
 		ArrayList<String> categoricLabels = new ArrayList<String>();
 		int indexOfLabelColumn = 0;
 
 		try{
-
 			Scanner fileScanner = new Scanner(new File(fileName));
 			int rowIndex = 0;
-
 			while(fileScanner.hasNextLine()){
 
 				String line = fileScanner.nextLine();
-
 				ArrayList<Double> rowFeatures = new ArrayList<Double>();
 
 				Scanner lineScanner = new Scanner(line);
 				lineScanner.useDelimiter(delimiter);
 				int colIndex = 0;
 				while(lineScanner.hasNext()){
-
 					String item = lineScanner.next();
-
 					// Find the index of labels column
 					if (item.equals(labelColumnName)) {
 						indexOfLabelColumn = colIndex;
 					}
-
 					if (rowIndex != 0) {
 						if (colIndex != indexOfLabelColumn) {
 							rowFeatures.add(Double.parseDouble(item));
@@ -87,9 +80,7 @@ public class DataPreProcessing{
 
 						}
 					}
-
 					colIndex++;
-
 				}
 
 				if (rowFeatures.size() > 0) {
@@ -97,9 +88,7 @@ public class DataPreProcessing{
 				}
 
 				lineScanner.close();
-
 				rowIndex++;
-
 			}
 
 			fileScanner.close();
@@ -114,7 +103,6 @@ public class DataPreProcessing{
 		} catch (FileNotFoundException fnfe){
 			System.out.printf("An error occured. Message is %s", fnfe.getMessage());
 		}
-
 	}
 
 	/* 	-- Gets the CSV file and sets features and labels lists --
@@ -126,20 +114,16 @@ public class DataPreProcessing{
 	*/
 	public void processCSVFile(String fileName,
 								int labelColumnIndex, String labelType, String delimiter){
-
 		ArrayList<ArrayList<Double>> featuresList = new ArrayList<ArrayList<Double>>();
 		ArrayList<Integer> labelsList = new ArrayList<Integer>();
 		ArrayList<String> categoricLabels = new ArrayList<String>();
 
 		try{
-
 			Scanner fileScanner = new Scanner(new File(fileName));
 			int rowIndex = 0;
 
 			while(fileScanner.hasNextLine()){
-
 				String line = fileScanner.nextLine();
-
 				ArrayList<Double> rowFeatures = new ArrayList<Double>();
 
 				Scanner lineScanner = new Scanner(line);
@@ -148,7 +132,6 @@ public class DataPreProcessing{
 				while(lineScanner.hasNext()){
 
 					String item = lineScanner.next();
-
 					if (rowIndex != 0) {
 						if (colIndex != labelColumnIndex) {
 							rowFeatures.add(Double.parseDouble(item));
@@ -165,9 +148,7 @@ public class DataPreProcessing{
 							}
 						}
 					}
-
 					colIndex++;
-
 				}
 
 				if (rowFeatures.size() > 0) {
@@ -175,9 +156,7 @@ public class DataPreProcessing{
 				}
 
 				lineScanner.close();
-
 				rowIndex++;
-
 			}
 
 			fileScanner.close();
@@ -192,14 +171,12 @@ public class DataPreProcessing{
 		} catch (FileNotFoundException fnfe){
 			System.out.printf("An error occured. Message is %s", fnfe.getMessage());
 		}
-
 	}
 
 	// Randomly selects test features from the actual features list
 	// by using percentage value. 0.1 = 10% --> for test list
 	public ArrayList<ArrayList<Double>> splitTrainTest(ArrayList<ArrayList<Double>> trainFeatures,
 														double splitPercentage){
-
 		ArrayList<ArrayList<Double>> testFeatures = new ArrayList<ArrayList<Double>>();
 		Random rand = new Random();
 
@@ -209,9 +186,7 @@ public class DataPreProcessing{
 			int selectIndex = rand.nextInt(elementSize);
 			testFeatures.add(trainFeatures.get(selectIndex));
 		}
-
 		return testFeatures;
-
 	}
 
 	// Converts the categorical(Strings) label data set into numeric(Integers) labels
@@ -222,20 +197,16 @@ public class DataPreProcessing{
 		ArrayList<String> uniqueCategoriesList = new ArrayList<String>(uniqueCategoriesSet);
 
 		String indexElement = "";
-
 		for(int i = 0; i < categoricList.size(); i++){
 			indexElement = categoricList.get(i);
-
 			if (uniqueCategoriesList.contains(indexElement)) {
 				numericList.add(uniqueCategoriesList.indexOf(indexElement));
 			}
-
 		}
-
 		return numericList;
 	}
 
-	// Checks if a String's format is number 
+	// Checks if a String's format is number
 	private boolean isNumeric(String str){
 		 //match a number with optional '-' and decimal.
   		return str.matches("-?\\d+(\\.\\d+)?");
