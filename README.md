@@ -1,5 +1,5 @@
 # JSciLearn
-This is a simple **machine learning** library that written in **Java**. It can be used in Java or Android projects easily without any additional library needs. I'll be trying to keep this library very neat as possible as it can be. Pure Java libraries, no extra jars.
+This is a simple **machine learning** library that written in **Java**. It can be used for Java or Android projects easily without any additional library requirements. I'll be trying to keep this library very neat as possible as it can be. Pure Java libraries, no extra jars.
 
 ### Prerequisites
 
